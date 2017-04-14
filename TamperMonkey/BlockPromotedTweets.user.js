@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto block promoted tweets
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       @HackingThings
 // @include         https://www.twitter.com*
