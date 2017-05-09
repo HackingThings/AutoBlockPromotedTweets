@@ -30,7 +30,7 @@
                         //alert('button');
                         var buttons = elements[i].getElementsByTagName("button");
                         try{
-                        for(j = 0; j < elements.length; j++)
+                        for(j = 0; j < buttons.length; j++)
                         {
                             if (buttons[j].innerHTML.indexOf("Block")!=-1)
                                 {
