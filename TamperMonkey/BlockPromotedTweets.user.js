@@ -11,7 +11,7 @@
 // @match        http://tampermonkey.net/scripts.php
 // @grant        none
 // ==/UserScript==
- 
+
 (function() {
     'use strict';
 
@@ -20,33 +20,32 @@
     var elements = document.body.getElementsByTagName("li");
     var i=0;
     var j=0;
-   
-
+    var k=0;
     for(i = 0; i < elements.length; i++)
     {
         try{
-        if (elements[i].innerHTML.indexOf("Icon Icon--promoted")!=-1)
+            if (elements[i].innerHTML.indexOf("Icon Icon--promoted")!=-1)
+            {
+                //alert('button');
+                var buttons = elements[i].getElementsByTagName("button");
+                try{
+                    for(j = 0; j < buttons.length; j++)
                     {
-                        //alert('button');
-                        var buttons = elements[i].getElementsByTagName("button");
-                        try{
-                        for(j = 0; j < buttons.length; j++)
+                        if (buttons[j].innerHTML.indexOf("Block")!=-1)
                         {
-                            if (buttons[j].innerHTML.indexOf("Block")!=-1)
-                                {
-                                    buttons[j].click();
-                                    var blocks = document.body.getElementsByClassName("btn primary-btn caution-btn block-button");
-                                    for(j = 0; j < blocks.length; j++)
-                                    {
-                                        blocks[j].click();           
-                                    }
-                                    
-                                }
+                            buttons[j].click();
+                            var blocks = document.body.getElementsByClassName("btn primary-btn caution-btn block-button");
+                            for(k = 0; k < blocks.length; k++)
+                            {
+                                blocks[k].click();
+                            }
+
                         }
-                        }catch(err) {}
-                        
                     }
-            }catch(err) {}
+                }catch(err) {}
+
+            }
+        }catch(err) {}
     }
-    
+
 })();
