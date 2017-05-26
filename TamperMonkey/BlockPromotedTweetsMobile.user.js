@@ -12,7 +12,7 @@
 // @grant        none
 // ==/UserScript==
 
-//window.addEventListener("load", function() { alert("test");});
+
 setTimeout(function(){
     (function dowork() {
         'use strict';
@@ -21,16 +21,11 @@ setTimeout(function(){
         i=0;
         var j=0;
         var k=0;
-        //alert(elements.length);
         for(i = 0; i < elements.length; i++)
         {
             try{
                 if (elements[i].innerText.indexOf("Promoted by ")!=-1)
                 {
-                    //alert(elements[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.innerHTML);
-
-                    //elements[i].parentElement.click();
-
                     var buttons = elements[i].parentElement.parentElement.parentElement.parentElement.parentElement.getElementsByTagName("button");
                     try{
                         for(j = 0; j < buttons.length; j++)
@@ -39,26 +34,23 @@ setTimeout(function(){
                             if (buttons[j].parentElement.innerHTML.indexOf("aria-label=\"More\"")!=-1)
                             {
                                 buttons[j].click();
-                                //alert(buttons[j].parentElement.className);
-
                                 var blocks = document.body.getElementsByTagName("span");
                                 for(k = 0; k < blocks.length; k++)
                                 {
                                     if (blocks[k].innerHTML.indexOf("Block ")!=-1)
-                                        blocks[k].click();
-                                    var yesblock = document.body.getElementsByTagName("span");
-                                    for(var l = 0; l < yesblock.length; l++)
                                     {
-                                        if (yesblock[l].innerHTML.indexOf("Yes")!=-1)
-                                            yesblock[l].click();
+                                        blocks[k].click();
+                                        var yesblock = document.body.getElementsByTagName("span");
+                                        for(var l = 0; l < yesblock.length; l++)
+                                        {
+                                            if (yesblock[l].innerHTML.indexOf("Yes")!=-1)
+                                                yesblock[l].click();
+                                        }
                                     }
                                 }
-
-
                             }
                         }
                     }catch(err) {}
-
                 }
             }catch(err) {}
         }
@@ -66,3 +58,4 @@ setTimeout(function(){
     })();
 
 }, 1000); //asume it takes a second to load, might need to up this with slow connections
+//setTimeout(function(){location.reload();},(Math.random() * (40000 - 1000) + 1000));
