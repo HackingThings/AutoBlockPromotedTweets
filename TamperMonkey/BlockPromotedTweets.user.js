@@ -34,7 +34,7 @@
                         if (buttons[j].innerHTML.indexOf("Block")!=-1)
                         {
                             buttons[j].click();
-                            var blocks = document.body.getElementsByClassName("btn primary-btn caution-btn block-button");
+                            var blocks = document.body.getElementsByClassName("EdgeButton EdgeButton--danger block-button");
                             for(k = 0; k < blocks.length; k++)
                             {
                                 blocks[k].click();
